@@ -1,0 +1,28 @@
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Добавить новость</h4>
+    <a (click)="closeModal()">
+      <span class="close-icon">×</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Название</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Название"
+          formControlName="title">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Описание</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+          formControlName="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Прикрепить фото</label>
+        <input class="form-control" type="file" id="formFile" (change)="uploadFile($event)">
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button [disabled]="form.invalid" type="button" class="btn btn-success" (click)="saveModal()">Сохранить</button>
+  </div>

@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <ng-container *ngIf="news; else loading">
+    <div class="news">
+      <div class="header">
+        <h1>{{ news?.title }}</h1>
+        <div class="back-arrow">
+        <fa-icon class="icon" [icon]="faArrowLeft" size="lg" [fixedWidth]="true" routerLink="/"></fa-icon>
+      </div>
+    </div>
+
+      <div class="info">
+        <strong>{{ news?.description }}</strong>
+        <small>{{ news?.publishedDate | date:'dd.MM.yyyy' }}</small>
+      </div>
+
+      <div>
+        <quill-view-html [content]="news?.text"></quill-view-html>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <p class="text-center">Загружаю новость...</p>
+  </ng-template>
+  </div>
+
+
+
+
